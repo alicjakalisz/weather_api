@@ -28,7 +28,7 @@ Project is created with:
 ## API contract
 ### HTTP GET /weather/{city}
 Get the day weather for a city.
-####HTTP responses:
+#### HTTP responses:
 ##### HTTP 200
 ```
 {
