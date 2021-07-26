@@ -33,7 +33,7 @@ public class WeatherController {
         if (result.isEmpty()) {
             return ResponseEntity.noContent().build();
         } else {
-            return ResponseEntity.ok().body(result.get());
+            return ResponseEntity.ok().body(result.get());// from optional returnedby Service
         }
     }
 }

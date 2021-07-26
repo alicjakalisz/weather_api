@@ -9,6 +9,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+
+// zczytujemy content z URL do stringa a potem jak juz mamy json stringa to do json object
 public class URLUtil {
 
     public static JsonObject convertURLIntoJsonObject(String URLString) throws IOException, SearchException {
