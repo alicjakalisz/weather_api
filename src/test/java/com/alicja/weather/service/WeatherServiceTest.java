@@ -1,27 +1,24 @@
-package com.example.demo.service;
+package com.alicja.weather.service;
 
-import com.example.demo.mapper.WeatherMapper;
-import com.example.demo.model.Weather;
-import com.example.demo.respository.WeatherRepository;
-import com.example.demo.util.TempConverter;
-import com.example.demo.weatherdto.WeatherDto;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.alicja.weather.dto.WeatherDto;
+import com.alicja.weather.mapper.WeatherMapper;
+import com.alicja.weather.model.Weather;
+import com.alicja.weather.repository.WeatherRepository;
+import com.alicja.weather.util.TempConverter;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Spy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import javax.print.DocFlavor;
+
 import java.io.*;
-import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import static org.mockito.Mockito.when;
 import static org.mockito.ArgumentMatchers.any;
@@ -49,7 +46,7 @@ public class WeatherServiceTest {
         Weather weather = new Weather("Madrid", "few clouds", temperature, 25.0, "ES", LocalDate.now());
         WeatherDto weatherDto = weatherMapper.convertFromEntity(weather);
 
-        when(weatherRepository.findWeatherByCity(any())).thenReturn(Optional.empty());
+        when(weatherRepository.findWeatherByCity(any())).thenReturn(new ArrayList<>());
         when(openWeatherApiService.getWeatherByCity(any())).thenReturn(Optional.of(weather));
         when(weatherRepository.save(any())).thenReturn(weather);
         Optional<WeatherDto> result = weatherService.getWeatherByCity("Madrid");
@@ -62,7 +59,7 @@ public class WeatherServiceTest {
         Double temperature = TempConverter.convertKelvinToCels(304.70);
         Weather weather = new Weather("Madrid", "few clouds", temperature, 25.0, "ES", LocalDate.now());
         WeatherDto weatherDto = weatherMapper.convertFromEntity(weather);
-        when(weatherRepository.findWeatherByCity(any())).thenReturn(Optional.of(weather));
+        when(weatherRepository.findWeatherByCity(any())).thenReturn(List.of(weather));
         Optional<WeatherDto> result = weatherService.getWeatherByCity("Madrid");
         assertEquals(result, Optional.of(weatherDto));
 
@@ -71,7 +68,7 @@ public class WeatherServiceTest {
 
     @Test
     public void testThatWhenTheCityDoesNotExistThenReturnsAnEmptyOptionalWeather() throws IOException {
-        when(weatherRepository.findWeatherByCity(any())).thenReturn(Optional.empty());
+        when(weatherRepository.findWeatherByCity(any())).thenReturn(new ArrayList<>());
         when(openWeatherApiService.getWeatherByCity(any())).thenReturn(Optional.empty());
         Optional<WeatherDto> result = weatherService.getWeatherByCity("Madrid");
 

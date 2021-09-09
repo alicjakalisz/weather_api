@@ -1,14 +1,15 @@
-package com.example.demo.service;
+package com.alicja.weather.service;
 
-import com.example.demo.mapper.WeatherMapper;
-import com.example.demo.model.Weather;
-import com.example.demo.respository.WeatherRepository;;
-import com.example.demo.weatherdto.WeatherDto;
+import com.alicja.weather.mapper.WeatherMapper;
+import com.alicja.weather.model.Weather;
+import com.alicja.weather.repository.WeatherRepository;;
+import com.alicja.weather.dto.WeatherDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -30,10 +31,12 @@ public class WeatherService {
      * @return
      */
     public Optional<WeatherDto> getWeatherByCity(String city) {
-        Optional<Weather> weather = weatherRepository.findWeatherByCity(city);
-        if (weather.isPresent()) {
-            if (weather.get().getDate().equals(LocalDate.now())) {
-                WeatherDto weatherDto = weatherMapper.convertFromEntity(weather.get());
+        List<Weather> weatherByCity = weatherRepository.findWeatherByCity(city);
+
+        if (!weatherByCity.isEmpty()) {
+            Weather latestWeatherCity = weatherByCity.get(0);
+            if (latestWeatherCity.getDate().equals(LocalDate.now())) {
+                WeatherDto weatherDto = weatherMapper.convertFromEntity(latestWeatherCity);
                 return Optional.of(weatherDto);
             } else {
                 return getWeatherFromApi(city);

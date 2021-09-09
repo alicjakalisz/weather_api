@@ -1,7 +1,7 @@
-package com.example.demo.config;
+package com.alicja.weather.config;
 
 
-import com.example.demo.mapper.WeatherMapper;
+import com.alicja.weather.mapper.WeatherMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

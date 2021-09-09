@@ -1,4 +1,4 @@
-package com.example.demo.mapper;
+package com.alicja.weather.mapper;
 
 public interface Mapper<D,E> {
 

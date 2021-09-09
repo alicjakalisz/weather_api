@@ -1,6 +1,6 @@
-package com.example.demo.util;
+package com.alicja.weather.util;
 
-import com.example.demo.Exception.SearchException;
+import com.alicja.weather.exception.SearchException;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.io.BufferedReader;

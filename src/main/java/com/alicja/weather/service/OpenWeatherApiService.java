@@ -1,13 +1,11 @@
-package com.example.demo.service;
+package com.alicja.weather.service;
 
 
-import com.example.demo.Exception.SearchException;
-import com.example.demo.model.Weather;
-import com.example.demo.util.TempConverter;
-import com.example.demo.util.URLUtil;
+import com.alicja.weather.exception.SearchException;
+import com.alicja.weather.model.Weather;
+import com.alicja.weather.util.TempConverter;
+import com.alicja.weather.util.URLUtil;
 import com.google.gson.JsonObject;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.time.LocalDate;

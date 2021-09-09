@@ -1,7 +1,7 @@
-package com.example.demo.controller;
+package com.alicja.weather.controller;
 
-import com.example.demo.service.WeatherService;
-import com.example.demo.weatherdto.WeatherDto;
+import com.alicja.weather.service.WeatherService;
+import com.alicja.weather.dto.WeatherDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

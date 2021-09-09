@@ -1,7 +1,7 @@
-package com.example.demo.mapper;
+package com.alicja.weather.mapper;
 
-import com.example.demo.model.Weather;
-import com.example.demo.weatherdto.WeatherDto;
+import com.alicja.weather.dto.WeatherDto;
+import com.alicja.weather.model.Weather;
 
 public class WeatherMapper implements Mapper<WeatherDto, Weather> {
     @Override

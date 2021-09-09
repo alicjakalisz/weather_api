@@ -1,5 +1,5 @@
-package com.example.demo.config;
-import com.example.demo.service.OpenWeatherApiService;
+package com.alicja.weather.config;
+import com.alicja.weather.service.OpenWeatherApiService;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

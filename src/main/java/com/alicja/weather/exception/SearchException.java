@@ -1,4 +1,4 @@
-package com.example.demo.Exception;
+package com.alicja.weather.exception;
 
 public class SearchException  extends Exception{
     public SearchException(String errorMessage) {

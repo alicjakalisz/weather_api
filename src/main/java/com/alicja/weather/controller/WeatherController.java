@@ -1,7 +1,7 @@
-package com.example.demo.controller;
+package com.alicja.weather.controller;
 
-import com.example.demo.service.WeatherService;
-import com.example.demo.weatherdto.WeatherDto;
+import com.alicja.weather.service.WeatherService;
+import com.alicja.weather.dto.WeatherDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
